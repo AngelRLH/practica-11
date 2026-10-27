@@ -1,0 +1,56 @@
+<!-- 
+  Autor: Lopez Hernandez Angel Roman
+  Fecha: 27/10/2026
+  Materia: Programacion Web
+  Practica 10 - Estructura basica javascrip y estilos
+-->
+<script>
+    // Datos
+    let nombre = prompt("Dime el nombre");
+    let dias_trabajados = parseInt(prompt("Dias trabajados"));
+    let antiguedad = parseInt(prompt("Ingrese antiguedad"));
+    let sueldo_base = 15000;
+    let bono = 1000;
+    let sueldo_quincenal = (sueldo_base / 15) * dias_trabajados;
+    let sueldo_final = sueldo_quincenal;
+
+    if (antiguedad >= 10) {
+        sueldo_final = sueldo_quincenal + bono;
+    } else {
+        bono = 0;
+    }
+
+    // Contenedor principal para centrar horizontal y verticalmente
+    document.write("<div style='display: flex; justify-content: center; align-items: center; min-height: 100vh;'>");
+
+    // Inicio de la tabla
+    document.write("<table border='1' style='border-collapse: collapse; text-align: center;'>");
+    
+    // Encabezados
+    document.write("<tr style='background-color: #f2f2f2;'>");
+    document.write("<th>No.</th><th>Nombre</th><th>Dias Trab.</th><th>Sueldo Prop.</th><th>Antiguedad</th><th>Bono</th><th>Sueldo Total</th>");
+    document.write("</tr>");
+
+    // Fila 1: Datos ingresados por el usuario
+    document.write("<tr>");
+    document.write("<td>1</td>");
+    document.write("<td><b>" + nombre + "</b></td>");
+    document.write("<td>" + dias_trabajados + "</td>");
+    document.write("<td>$" + sueldo_quincenal + "</td>");
+    document.write("<td>" + antiguedad + " anos</td>");
+    document.write("<td>$" + bono + "</td>");
+    document.write("<td><b>$" + sueldo_final + "</b></td>");
+    document.write("</tr>");
+
+    // Filas 2, 3 y 4: Vacias usando el for
+    for (let i = 2; i <= 4; i++) {
+        document.write("<tr>");
+        document.write("<td>" + i + "</td>");
+        document.write("<td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>");
+        document.write("</tr>");
+    }
+
+    // Cierre de la tabla y del contenedor
+    document.write("</table>");
+    document.write("</div>");
+</script>
